@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Appt</title>
+</head>
+<body>
+    <form>
+        <label for="title"></label>
+        <input type="text" placeholder= "title" id="title" name="title">
+        <label for="rating"></label>
+        <input type="text" placeholder="rating" id="rating" name="rating">
+        <button id="submit">Submit</button>
+    </form>
+    <ul id="movies"></ul>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('#submit').on('click', function (e) {
+        e.preventDefault()
+        let title = $("#title").val()
+        let rating = $("#rating").val()
+        let movie =
+        $("ul").append($("<li>", {text: "" + title + " " +
+    "is rated" + " " + rating + " "}).append($("<button>remove</button>")));
+        });
+
+        $("ul").on('click', "li", (e) => {
+            $(e.target.closest("li").remove());
+        });
+
+    </script>
+</body>
+</html>
